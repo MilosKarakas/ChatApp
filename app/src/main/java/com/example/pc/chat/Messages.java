@@ -24,8 +24,6 @@ import java.util.Calendar;
 
 public class Messages extends AppCompatActivity {
 
-
-    //Lista poruka
     ArrayList<Message> messages = new ArrayList<>();
 
     @Override
@@ -38,66 +36,80 @@ public class Messages extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         final String username = bundle.getString("Username");
+
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference data_reference = database.getReference("Messages/");
         final Button input_btn = findViewById(R.id.input_button);
+
+        //Query data = data_reference.orderByKey().limitToLast(1);
+
 
         input_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 EditText input_et = findViewById(R.id.input_message);
-
-                //Da bi se moglo povući vrijeme koje koristim kao ID
-
                 Calendar c = Calendar.getInstance();
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String time = df.format(c.getTime());
 
                 String random = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
+
                 data_reference.child(random).child("time").setValue(time);
                 data_reference.child(random).child("text").setValue(input_et.getText().toString());
                 data_reference.child(random).child("username").setValue(username);
 
-                input_btn.setText("");
+                input_et.setText("");
             }
         });
-
-//Todo : NAPRAVITI DA RADI FINO SA BAZOM ,IZBACUJE NULL EX, RADILO JE NORMALNO BEZ CITANJA IZ BAZE KONSTANTNOG
 
         data_reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                    messages.add(new Message(dataSnapshot.child("username").getValue().toString(), dataSnapshot.child("text").getValue().toString(), dataSnapshot.child("time").getValue().toString(), dataSnapshot.getKey().toString()));
+                String time = dataSnapshot.child("time").getValue(String.class);
+                String text = dataSnapshot.child("text").getValue(String.class);
+                String username = dataSnapshot.child("username").getValue(String.class);
+
+                if (text == null && username == null) {
+                    messages.add(new Message(time, dataSnapshot.getKey()));
+                }
+                else {
+                    messages.add(new Message(username, text, time, dataSnapshot.getKey()));
                     update();
+                }
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                    Message message = new Message(dataSnapshot.child("username").getValue().toString(), dataSnapshot.child("text").getValue().toString(), dataSnapshot.child("time").getValue().toString(), dataSnapshot.getKey().toString());
 
-                    for (Message messageCheck : messages) {
-                        if (message.getId() == messageCheck.getId()) {
-                            message.setText(messageCheck.getText());
-                            message.setTime(messageCheck.getTime());
-                            message.setUsername(messageCheck.getUsername());
-                        }
+                String username = dataSnapshot.child("username").getValue(String.class);
+                String time = dataSnapshot.child("time").getValue(String.class);
+                String text = dataSnapshot.child("text").getValue(String.class);
+                String id = dataSnapshot.getKey();
+
+                for (int i = 0; i < messages.size(); i++) {
+                    if (messages.get(i).getId().equals(id)) {
+                        messages.get(i).setText(text);
+                        messages.get(i).setTime(time);
+                        messages.get(i).setUsername(username);
                     }
+                }
 
-                update();
+                if (text != null && username != null)
+                    update();
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    Message message = new Message(dataSnapshot.child("username").getValue().toString(), dataSnapshot.child("text").getValue().toString(), dataSnapshot.child("time").getValue().toString(), dataSnapshot.getKey().toString());
+                Message message = new Message(dataSnapshot.child("username").getValue().toString(), dataSnapshot.child("text").getValue().toString(), dataSnapshot.child("time").getValue().toString(), dataSnapshot.getKey().toString());
 
-                    for (Message messageCheck : messages) {
-                        if (message.getId() == messageCheck.getId())
-                            messages.remove(messages.indexOf(messageCheck));
-                    }
+                for (Message messageCheck : messages) {
+                    if (message.getId().equals(messageCheck.getId()))
+                        messages.remove(messages.indexOf(messageCheck));
+                }
 
                 update();
             }

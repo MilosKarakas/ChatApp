@@ -23,9 +23,10 @@ public class Message implements Serializable {
         this.id = id;
     }
 
-    Message()
+    Message(String time, String id)
     {
-
+        this.time = time;
+        this.id = id;
     }
 
     void setText(String text)
@@ -51,22 +52,22 @@ public class Message implements Serializable {
          */
     }
 
-    String getTime()
+    public String getTime()
     {
         return this.time;
     }
 
-    void setUsername(String username)
+    public void setUsername(String username)
     {
         this.username=username;
     }
 
-    String getUsername()
+    public String getUsername()
     {
         return this.username;
     }
 
-    void setId(String id) { this.id=id;}
+    public void setId(String id) { this.id=id;}
 
-    String getId() { return  this.id;}
+    public String getId() { return  this.id;}
 }
