@@ -6,5 +6,5 @@
     <string name="message_default_title">Username</string>
     <string name="message_default_text">Here is displayed your message.</string>
     <string name="message_default_time">20.01.2015.</string>
-    <string name="username_tw">ENTER USERNAME</string>
+    <string name="username_tw">ENTER A USERNAME</string>
 </resources>

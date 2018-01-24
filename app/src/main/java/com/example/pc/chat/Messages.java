@@ -15,8 +15,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,12 +34,12 @@ public class Messages extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         final String username = bundle.getString("Username");
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference data_reference = database.getReference("Messages/");
         final Button input_btn = findViewById(R.id.input_button);
 
-        //Query data = data_reference.orderByKey().limitToLast(1);
+        final EditText input_et = findViewById(R.id.input_message);
+        input_et.requestFocus();
 
 
         input_btn.setOnClickListener(new View.OnClickListener() {

@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/message_item">
+    android:background="@drawable/single_message_item_shape"
+    android:id="@+id/message_item"
+    android:layout_margin="@dimen/single_message_item_margin">
 
     <TextView
         android:id="@+id/item_title"
@@ -13,6 +15,7 @@
         android:textSize="@dimen/message_item_title_text_size"
         android:textStyle="bold"
         android:text="@string/message_default_title"
+        android:textColor="@color/messages_text_color"
         android:layout_marginTop="@dimen/message_item_title_margin"
         android:layout_marginRight="@dimen/message_item_title_margin"
         android:layout_marginBottom="@dimen/message_item_title_margin"
@@ -23,11 +26,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/item_title"
+        android:textAlignment="gravity"
         android:layout_marginTop="@dimen/message_item_text_margin"
         android:layout_marginRight="@dimen/message_item_text_margin"
         android:layout_marginBottom="@dimen/message_item_text_margin"
         android:layout_marginLeft="@dimen/message_item_text_margin_left"
-        android:text="@string/message_default_text"/>
+        android:text="@string/message_default_text"
+        android:textColor="@color/messages_text_color"/>
 
     <TextView
         android:id="@+id/item_time"
@@ -37,6 +42,7 @@
         android:layout_below="@+id/item_text"
         android:text="@string/message_default_time"
         android:textStyle="italic"
+        android:textColor="@color/messages_text_color"
         android:layout_marginRight="@dimen/message_item_time_margin_right"/>
 
 </RelativeLayout>

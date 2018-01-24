@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/message_back"
     tools:context="com.example.pc.chat.Messages">
 
     <ScrollView
         android:id="@+id/scroll_view_messages"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
     <RelativeLayout
         android:id="@+id/relative_layout_messages"
@@ -25,7 +27,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/toolbar_message_color"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -45,7 +47,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/message_recycler_view"
+        android:textColor="@color/messages_input_et_text_color"
         android:layout_marginTop="@dimen/input_margin_top"
+        android:focusable="true"
         android:textSize="@dimen/input_text_size"
         />
 
@@ -56,7 +60,7 @@
         android:layout_alignRight="@id/input_message"
         android:layout_alignTop="@id/input_message"
         android:layout_marginRight="@dimen/input_btn_margin_right"
-        android:background="@mipmap/ic_launcher_round"
+        android:background="@drawable/message_send"
         android:layout_below="@id/input_message"
         />
 

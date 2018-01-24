@@ -4,15 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:theme="@style/AppTheme.NoActionBar"
     tools:context="com.example.pc.chat.Splash">
-
-    <ProgressBar
-        android:id="@+id/splash_screen_progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/splash_screen_progress_bar_height"
-        android:layout_centerVertical="true"
-        android:backgroundTint="@color/colorAccent"
-        android:progressBackgroundTint="@color/colorPrimaryDark"
-        />
 
 </RelativeLayout>
