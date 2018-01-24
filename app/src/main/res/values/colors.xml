@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="username_title">#FF884D</color>
+    <color name="username_shapes_background">#b3e0ff</color>
+    <color name="username_shapes_stroke">#80ffff</color>
 </resources>

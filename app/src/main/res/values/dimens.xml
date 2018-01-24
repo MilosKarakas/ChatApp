@@ -22,4 +22,7 @@
     <dimen name="username_tw_margin_bottom">132dp</dimen>
     <dimen name="username_tw_text_size">20sp</dimen>
     <dimen name="username_et_text_size">20sp</dimen>
+    <dimen name="username_et_radius">40dp</dimen>
+    <dimen name="username_btn_radius">28dp</dimen>
+    <dimen name="username_btn_stroke_width">6dp</dimen>
 </resources>
