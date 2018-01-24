@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pc.chat.Username">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <EditText
+        android:id="@+id/username_et"
+        android:layout_width="@dimen/username_et_width"
+        android:layout_height="@dimen/username_et_height"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        tools:ignore="InvalidId" />
+
+    <Button
+        android:id="@+id/username_btn"
+        android:layout_width="@dimen/username_btn_width"
+        android:layout_height="@dimen/username_btn_heigth"
+        android:layout_below="@+id/username_et"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/username_btn_margin_top"
+        android:text="@string/username_btn_confirm"
+        android:textSize="@dimen/username_btn_text_size"/>
+
+
+
+
+</RelativeLayout>

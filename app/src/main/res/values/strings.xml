@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Chat</string>
+    <string name="title_activity_username">Username</string>
+    <string name="username_btn_confirm">OK</string>
+    <string name="title_activity_messages">Messages</string>
+    <string name="message_default_title">Username</string>
+    <string name="message_default_text">Here is displayed your message.</string>
+    <string name="message_default_time">20.01.2015.</string>
+</resources>

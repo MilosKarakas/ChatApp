@@ -1,0 +1,22 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="username_et_width">240dp</dimen>
+    <dimen name="username_et_height">120dp</dimen>
+    <dimen name="username_btn_width">120dp</dimen>
+    <dimen name="username_btn_heigth">60dp</dimen>
+    <dimen name="username_btn_margin_top">10dp</dimen>
+    <dimen name="username_btn_text_size">20sp</dimen>
+    <dimen name="message_item_title_margin">5dp</dimen>
+    <dimen name="message_item_title_margin_left">10dp</dimen>
+    <dimen name="message_item_title_text_size">12sp</dimen>
+    <dimen name="message_item_text_margin">5dp</dimen>
+    <dimen name="message_item_text_margin_left">12dp</dimen>
+    <dimen name="message_item_time_margin_right">10dp</dimen>
+    <dimen name="input_margin_top">18dp</dimen>
+    <dimen name="input_text_size">16sp</dimen>
+    <dimen name="input_btn_height">18dp</dimen>
+    <dimen name="input_btn_width">18dp</dimen>
+    <dimen name="input_btn_margin_right">22dp</dimen>
+    <dimen name="splash_screen_progress_bar_height">20dp</dimen>
+    <dimen name="splash_screen_progress_bar_margin_top">75dp</dimen>
+</resources>
