@@ -12,11 +12,14 @@
     <dimen name="message_item_text_margin">5dp</dimen>
     <dimen name="message_item_text_margin_left">12dp</dimen>
     <dimen name="message_item_time_margin_right">10dp</dimen>
-    <dimen name="input_margin_top">18dp</dimen>
+    <dimen name="input_margin_top">24dp</dimen>
     <dimen name="input_text_size">16sp</dimen>
     <dimen name="input_btn_height">18dp</dimen>
     <dimen name="input_btn_width">18dp</dimen>
     <dimen name="input_btn_margin_right">22dp</dimen>
     <dimen name="splash_screen_progress_bar_height">20dp</dimen>
     <dimen name="splash_screen_progress_bar_margin_top">75dp</dimen>
+    <dimen name="username_tw_margin_bottom">132dp</dimen>
+    <dimen name="username_tw_text_size">20sp</dimen>
+    <dimen name="username_et_text_size">20sp</dimen>
 </resources>

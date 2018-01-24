@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 /**
  * Created by PC on 1/23/2018.
+ * Ovo znaš i sam šta je
  */
 
 public class Message implements Serializable {

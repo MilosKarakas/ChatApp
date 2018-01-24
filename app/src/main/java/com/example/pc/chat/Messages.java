@@ -24,6 +24,8 @@ import java.util.Calendar;
 
 public class Messages extends AppCompatActivity {
 
+
+    //Lista poruka
     ArrayList<Message> messages = new ArrayList<>();
 
     @Override
@@ -36,43 +38,34 @@ public class Messages extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         final String username = bundle.getString("Username");
-
-        //messages = (ArrayList<Message>) getIntent().getExtras().getSerializable("Messages");
-
-        //final MessagesAdapter adapter = new MessagesAdapter(messages);
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference data_reference = database.getReference("Messages/");
         final Button input_btn = findViewById(R.id.input_button);
-
-        //Query data = data_reference.orderByKey().limitToLast(1);
-
 
         input_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 EditText input_et = findViewById(R.id.input_message);
+
+                //Da bi se moglo povući vrijeme koje koristim kao ID
+
                 Calendar c = Calendar.getInstance();
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String time = df.format(c.getTime());
 
                 String random = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
-                //Message message = new Message(username,input_et.getText().toString(),time,random);
-
                 data_reference.child(random).child("time").setValue(time);
                 data_reference.child(random).child("text").setValue(input_et.getText().toString());
                 data_reference.child(random).child("username").setValue(username);
-
-                //messages.add(message);
-                //adapter.notifyDataSetChanged();
 
                 input_btn.setText("");
             }
         });
 
 //Todo : NAPRAVITI DA RADI FINO SA BAZOM ,IZBACUJE NULL EX, RADILO JE NORMALNO BEZ CITANJA IZ BAZE KONSTANTNOG
+
         data_reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
