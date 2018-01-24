@@ -35,17 +35,22 @@ public class Splash extends AppCompatActivity {
 
                 try {
 
+                    sleep(2000);
+                    Intent intent = new Intent(getApplicationContext(), Username.class);
+                    startActivity(intent);
+                    finish();
+                    /*
                     reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            new LoadingMessages().execute(dataSnapshot);
+                         //   new LoadingMessages().execute(dataSnapshot);
                         }
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
 
                         }
-                    });
+                    }); */
 
                 } catch (Exception e)
                 {

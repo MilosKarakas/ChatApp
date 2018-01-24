@@ -31,7 +31,7 @@ public class Username extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(),Messages.class);
                 intent.putExtra("Username", usernameEdit.getText().toString() );
-                intent.putExtra("Messages", getIntent().getExtras().getSerializable("Messages"));
+//                intent.putExtra("Messages", getIntent().getExtras().getSerializable("Messages"));
                 startActivity(intent);
 
             }

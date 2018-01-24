@@ -37,7 +37,7 @@ public class Messages extends AppCompatActivity {
 
         final String username = bundle.getString("Username");
 
-        messages = (ArrayList<Message>) getIntent().getExtras().getSerializable("Messages");
+        //messages = (ArrayList<Message>) getIntent().getExtras().getSerializable("Messages");
 
         //final MessagesAdapter adapter = new MessagesAdapter(messages);
 
