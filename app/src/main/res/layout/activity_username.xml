@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/username"
+    android:background="@drawable/background_mess_username"
     tools:context="com.example.pc.chat.Username">
 
     <android.support.design.widget.AppBarLayout
@@ -29,6 +29,7 @@
         android:layout_centerVertical="true"
         android:textAlignment="center"
         android:textSize="@dimen/username_et_text_size"
+        android:textColor="@color/username_colors"
         android:background="@drawable/username_et_shape"
         tools:ignore="InvalidId" />
 
@@ -41,11 +42,13 @@
         android:layout_marginTop="@dimen/username_btn_margin_top"
         android:text="@string/username_btn_confirm"
         android:textSize="@dimen/username_btn_text_size"
+        android:textColor="@color/username_colors"
         android:background="@drawable/username_btn_shape"/>
 
     <TextView
         android:text="@string/username_tw"
         android:textSize="@dimen/username_tw_text_size"
+        android:textColor="@color/username_colors"
         android:id="@+id/username_tw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

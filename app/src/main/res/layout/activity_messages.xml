@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/relative_layout_messages_main"
-    android:background="@drawable/message_back"
+    android:background="@drawable/background_mess_username"
     tools:context="com.example.pc.chat.Messages">
 
     <ScrollView
@@ -54,6 +54,8 @@
         android:layout_alignParentBottom="true"
         android:focusable="true"
         android:textSize="@dimen/input_text_size"
+        android:backgroundTint="@color/messages_text_color"
+
         />
 
     <Button

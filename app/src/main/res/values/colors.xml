@@ -3,12 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="username_title">#FF884D</color>
+    <color name="username_title">#005B7B</color>
+    <color name="username_colors">#005B7B</color>
     <color name="username_shapes_background">#80b3e0ff</color>
     <color name="username_shapes_stroke">#ffccb3</color>
-    <color name="messages_text_color">#00334d</color>
-    <color name="toolbar_message_color">#561B31</color>
+    <color name="messages_text_color">#005B7B</color>
+    <color name="toolbar_message_color">#005B7B</color>
     <color name="single_message_item_stroke">#ffccb3</color>
     <color name="single_message_item_fill">#80b3e0ff</color>
-    <color name="messages_input_et_text_color">#00334d</color>
+    <color name="messages_input_et_text_color">#005B7B</color>
 </resources>
