@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/relative_layout_messages_main"
     android:background="@drawable/message_back"
     tools:context="com.example.pc.chat.Messages">
 
@@ -42,13 +43,15 @@
         android:scrollbars="vertical">
 
     </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+    </ScrollView>
     <EditText
         android:id="@+id/input_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/message_recycler_view"
         android:textColor="@color/messages_input_et_text_color"
         android:layout_marginTop="@dimen/input_margin_top"
+        android:layout_alignParentBottom="true"
         android:focusable="true"
         android:textSize="@dimen/input_text_size"
         />
@@ -64,6 +67,5 @@
         android:layout_below="@id/input_message"
         />
 
-    </RelativeLayout>
-    </ScrollView>
+
 </RelativeLayout>
