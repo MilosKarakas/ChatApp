@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 
-public class Splash extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     Thread thread;
 
@@ -23,14 +23,14 @@ public class Splash extends AppCompatActivity {
                 try {
 
                     sleep(2000);
-                    Intent intent = new Intent(getApplicationContext(), Username.class);
+                    Intent intent = new Intent(getApplicationContext(), UsernameActivity.class);
                     startActivity(intent);
                     finish();
 
 
                 } catch (Exception e)
                 {
-                    Intent intent = new Intent(getApplicationContext(), Username.class);
+                    Intent intent = new Intent(getApplicationContext(), UsernameActivity.class);
                     startActivity(intent);
                     finish();
                 }

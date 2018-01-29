@@ -15,32 +15,27 @@ public class Message implements Serializable {
     private String username;
     private String id;
 
-     Message(String username,String text,String time,String id)
-    {
-        this.username=username;
-        this.text=text;
-        this.time=time;
-        this.id = id;
-    }
-
-    Message(String time, String id)
-    {
+    Message(String username, String text, String time, String id) {
+        this.username = username;
+        this.text = text;
         this.time = time;
         this.id = id;
     }
 
-    void setText(String text)
-    {
+    Message(String time, String id) {
+        this.time = time;
+        this.id = id;
+    }
+
+    void setText(String text) {
         this.text = text;
     }
 
-    String getText()
-    {
+    String getText() {
         return this.text;
     }
 
-    void setTime(String time)
-    {
+    void setTime(String time) {
         this.time = time;
         /*
         Date date, Context context
@@ -52,22 +47,23 @@ public class Message implements Serializable {
          */
     }
 
-    public String getTime()
-    {
+    public String getTime() {
         return this.time;
     }
 
-    public void setUsername(String username)
-    {
-        this.username=username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUsername()
-    {
+    public String getUsername() {
         return this.username;
     }
 
-    public void setId(String id) { this.id=id;}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getId() { return  this.id;}
+    public String getId() {
+        return this.id;
+    }
 }

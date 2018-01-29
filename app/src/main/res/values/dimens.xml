@@ -12,7 +12,7 @@
     <dimen name="message_item_text_margin">5dp</dimen>
     <dimen name="message_item_text_margin_left">12dp</dimen>
     <dimen name="message_item_time_margin_right">10dp</dimen>
-    <dimen name="input_margin_top">24dp</dimen>
+    <dimen name="input_margin_top">48dp</dimen>
     <dimen name="input_text_size">16sp</dimen>
     <dimen name="input_btn_height">32dp</dimen>
     <dimen name="input_btn_width">32dp</dimen>
@@ -27,4 +27,10 @@
     <dimen name="username_btn_stroke_width">2dp</dimen>
     <dimen name="single_message_item_radius">18dp</dimen>
     <dimen name="single_message_item_margin">8dp</dimen>
+    <dimen name="messages_input_message_margin_left">30dp</dimen>
+    <dimen name="messages_input_message_margin_right_btn">6dp</dimen>
+    <dimen name="messages_input_message_margin_right">42dp</dimen>
+    <dimen name="progress_bar_size">80dp</dimen>
+    <dimen name="messages_message_margin_bottom">54dp</dimen>
+    <dimen name="input_message_stroke_width">2dp</dimen>
 </resources>

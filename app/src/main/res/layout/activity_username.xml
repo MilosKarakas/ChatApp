@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_mess_username"
-    tools:context="com.example.pc.chat.Username">
+    tools:context="com.example.pc.chat.UsernameActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Splash">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,13 +18,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Username"
-            android:label="@string/title_activity_username"
+            android:name=".UsernameActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Messages"
+            android:name=".MessagesActivity"
             android:label="@string/title_activity_messages"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>
