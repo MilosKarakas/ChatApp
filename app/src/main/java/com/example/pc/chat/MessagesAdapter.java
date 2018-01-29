@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * Created by PC on 1/23/2018.
  */
 
+//TODO: NAPRAVITI ADAPTER TAKO DA BI PORUKE MOGLE DA KORISNIKOVE IDU LIJEVO A OD OSTALIH DESNO
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyViewHolder>{
 
 
@@ -70,4 +71,5 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             }
 
 
-}
+    }
+

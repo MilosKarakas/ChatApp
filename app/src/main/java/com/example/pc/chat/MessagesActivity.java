@@ -217,6 +217,13 @@ public class MessagesActivity extends AppCompatActivity {
         isFirstTime=false;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(messages.isEmpty())
+            progressBar.setVisibility(View.INVISIBLE);
+    }
 }
 
 
