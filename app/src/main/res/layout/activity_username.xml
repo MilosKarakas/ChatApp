@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pc.chat.Username">
+    android:background="@drawable/background_mess_username"
+    tools:context="com.example.pc.chat.UsernameActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/toolbar_message_color"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -28,6 +29,10 @@
         android:layout_centerVertical="true"
         android:textAlignment="center"
         android:textSize="@dimen/username_et_text_size"
+        android:inputType="text"
+        android:hint="Username"
+        android:textColor="@color/username_colors"
+        android:background="@color/username_shapes_background"
         tools:ignore="InvalidId" />
 
     <Button
@@ -38,11 +43,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/username_btn_margin_top"
         android:text="@string/username_btn_confirm"
-        android:textSize="@dimen/username_btn_text_size"/>
+        android:textSize="@dimen/username_btn_text_size"
+        android:textColor="@color/username_shapes_background"
+        android:background="@color/username_colors"/>
 
     <TextView
         android:text="@string/username_tw"
         android:textSize="@dimen/username_tw_text_size"
+        android:textColor="@color/username_colors"
         android:id="@+id/username_tw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

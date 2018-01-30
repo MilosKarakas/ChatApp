@@ -6,8 +6,8 @@
     android:background="@drawable/single_message_item_shape"
     android:id="@+id/message_item"
     android:layout_margin="@dimen/single_message_item_margin"
-    android:layout_alignParentRight="true"
-    android:layout_marginLeft="@dimen/messages_input_message_margin_left">
+    android:layout_alignParentLeft="true"
+    android:layout_marginRight="@dimen/messages_input_message_margin_right">
 
     <TextView
         android:id="@+id/item_title"
@@ -17,7 +17,7 @@
         android:textSize="@dimen/message_item_title_text_size"
         android:textStyle="bold"
         android:text="@string/message_default_title"
-        android:textColor="@color/messages_text_color"
+        android:textColor="@color/red"
         android:layout_marginTop="@dimen/message_item_title_margin"
         android:layout_marginRight="@dimen/message_item_title_margin"
         android:layout_marginBottom="@dimen/message_item_title_margin"
@@ -34,7 +34,7 @@
         android:layout_marginBottom="@dimen/message_item_text_margin"
         android:layout_marginLeft="@dimen/message_item_text_margin_left"
         android:text="@string/message_default_text"
-        android:textColor="@color/messages_text_color"/>
+        android:textColor="@color/red"/>
 
     <TextView
         android:id="@+id/item_time"
@@ -44,7 +44,7 @@
         android:layout_below="@+id/item_text"
         android:text="@string/message_default_time"
         android:textStyle="italic"
-        android:textColor="@color/messages_text_color"
+        android:textColor="@color/red"
         android:layout_marginRight="@dimen/message_item_time_margin_right"/>
 
 </RelativeLayout>

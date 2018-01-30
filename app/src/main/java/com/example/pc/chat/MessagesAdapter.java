@@ -6,12 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
  * Created by PC on 1/23/2018.
  */
 
+//TODO: NAPRAVITI ADAPTER TAKO DA BI PORUKE MOGLE DA KORISNIKOVE IDU LIJEVO A OD OSTALIH DESNO
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyViewHolder>{
 
 
@@ -28,7 +31,10 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
                 time = view.findViewById(R.id.item_time);
             }
 
+
+
         }
+
             public MessagesAdapter ( ArrayList<Message> messages)
             {
                 this.messages = messages;
@@ -36,15 +42,24 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
             @Override
             public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                View itemView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.single_message_item, parent, false);
 
-                return new MyViewHolder(itemView);
+                View itemView = LayoutInflater.from(parent.getContext())
+                                .inflate(R.layout.single_message_item, parent, false);
+
+                View itemView2 = LayoutInflater.from(parent.getContext())
+                                .inflate(R.layout.single_message_item_user, parent, false);
+
+                if(viewType ==1)
+                    return new MyViewHolder(itemView);
+                else
+                    return new MyViewHolder(itemView2);
             }
 
+
             @Override
-            public void onBindViewHolder(MyViewHolder holder, int position) {
+            public void onBindViewHolder(final MyViewHolder holder, int position) {
                 Message message = messages.get(position);
+
                 holder.title.setText(message.getUsername());
                 holder.time.setText(message.getTime());
                 holder.text.setText(message.getText());
@@ -56,4 +71,5 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             }
 
 
-}
+    }
+

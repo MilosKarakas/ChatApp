@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <corners android:radius="90dp"/>
+    <stroke android:color="@color/single_message_item_stroke" android:width="@dimen/input_message_stroke_width"/>
+    <solid android:color="@color/input_messages_color"/>
+
+</shape>

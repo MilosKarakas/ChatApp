@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pc.chat.Splash">
+    android:theme="@style/AppTheme.NoActionBar"
+    android:orientation="horizontal"
+    android:background="@color/splash_background_color"
+    tools:context="com.example.pc.chat.SplashActivity">
 
-    <ProgressBar
-        android:id="@+id/splash_screen_progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/splash_screen_progress_bar_height"
-        android:layout_centerVertical="true"
-        android:backgroundTint="@color/colorAccent"
-        android:progressBackgroundTint="@color/colorPrimaryDark"
+
+    <ImageView
+        android:id="@+id/splash_image_view"
+        android:layout_width="0dp"
+        android:layout_weight=".6"
+        android:src="@drawable/pitamda"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
         />
-
-</RelativeLayout>
+</LinearLayout>
