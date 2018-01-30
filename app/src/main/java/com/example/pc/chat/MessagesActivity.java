@@ -6,7 +6,10 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -33,9 +36,10 @@ public class MessagesActivity extends AppCompatActivity {
     ProgressBar progressBar;
     Button input_btn;
     String username;
-    String message;
+    String message, messageCheck;
     MessagesAdapter adapter = new MessagesAdapter(messages);
     RecyclerView.LayoutManager layoutManager;
+    RelativeLayout messages_containter;
     boolean isFirstTime;
 
     @Override
@@ -53,7 +57,7 @@ public class MessagesActivity extends AppCompatActivity {
         chat = findViewById(R.id.message_recycler_view);
         input_btn = findViewById(R.id.input_button);
         username = bundle.getString("UsernameActivity");
-
+        messages_containter = findViewById(R.id.relative_layout_messages);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference data_reference = database.getReference("Messages/");
@@ -69,19 +73,23 @@ public class MessagesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                chat.requestFocus();
 
                 //DA NE BI MOGLA PRAZNA PORUKA
 
                 message = input_et.getText().toString();
-                message = message.trim().replaceAll("\n", "");
-                message = message.trim().replaceAll(" ", "");
+                messageCheck = message.trim().replaceAll("\n", "");
+                messageCheck = message.trim().replaceAll(" ", "");
 
 
-                if (message.isEmpty())
+                if (messageCheck.isEmpty())
                     input_et.setText("");
 
-                if(!message.isEmpty()) {
+                else {
+
+                    while(message.endsWith("\n")) {
+                        message = message.substring(0,message.length()-2);
+                        input_et.setText("radi");
+                    }
 
                     Calendar c = Calendar.getInstance();
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -89,14 +97,18 @@ public class MessagesActivity extends AppCompatActivity {
                     String random = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
                     data_reference.child(random).child("time").setValue(time);
-                    data_reference.child(random).child("text").setValue(input_et.getText().toString());
+                    data_reference.child(random).child("text").setValue(message);
                     data_reference.child(random).child("username").setValue(username);
 
                     input_et.setText("");
 
                 }
+
+                input_et.requestFocus();
             }
         });
+
+        
 
 //TODO : URADITI DA SE PROGRESS PALI SAMO PRI ULASKU U ACITIVITY, NAPRAVITI LJEPSI PROGRESS +
         //TODO : KAD SE OTVORI TASTATURA DA PORUKE IDU GORE
@@ -217,13 +229,6 @@ public class MessagesActivity extends AppCompatActivity {
         isFirstTime=false;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if(messages.isEmpty())
-            progressBar.setVisibility(View.INVISIBLE);
-    }
 }
 
 

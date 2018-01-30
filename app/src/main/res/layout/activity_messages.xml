@@ -75,15 +75,21 @@
             <EditText
                 android:id="@+id/input_message"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/input_btn_height"
+                android:layout_height="wrap_content"
+                android:hint="Enter a message.."
                 android:textColor="@color/messages_input_et_text_color"
                 android:layout_marginTop="@dimen/input_margin_top"
                 android:layout_marginLeft="@dimen/messages_input_message_margin_left"
                 android:layout_marginRight="@dimen/messages_input_message_margin_right"
                 android:layout_alignParentBottom="true"
                 android:focusable="true"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxHeight="96dp"
+                android:maxLines="5"
+                android:padding="6dp"
+                android:scrollbars="vertical"
                 android:textSize="@dimen/input_text_size"
-                android:background="@drawable/input_message_shape"
+                android:background="@color/username_shapes_background"
                 />
 
             <Button

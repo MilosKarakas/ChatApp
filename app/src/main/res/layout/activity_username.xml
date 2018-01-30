@@ -29,8 +29,10 @@
         android:layout_centerVertical="true"
         android:textAlignment="center"
         android:textSize="@dimen/username_et_text_size"
+        android:inputType="text"
+        android:hint="Username"
         android:textColor="@color/username_colors"
-        android:background="@drawable/username_et_shape"
+        android:background="@color/username_shapes_background"
         tools:ignore="InvalidId" />
 
     <Button
@@ -42,8 +44,8 @@
         android:layout_marginTop="@dimen/username_btn_margin_top"
         android:text="@string/username_btn_confirm"
         android:textSize="@dimen/username_btn_text_size"
-        android:textColor="@color/username_colors"
-        android:background="@drawable/username_btn_shape"/>
+        android:textColor="@color/username_shapes_background"
+        android:background="@color/username_colors"/>
 
     <TextView
         android:text="@string/username_tw"
