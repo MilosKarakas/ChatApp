@@ -15,7 +15,6 @@
                 android:id="@+id/relative_layout_messages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/relative_messages"
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_marginBottom="@dimen/messages_message_margin_bottom"

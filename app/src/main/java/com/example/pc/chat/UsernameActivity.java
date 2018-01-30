@@ -27,11 +27,11 @@ public class UsernameActivity extends AppCompatActivity {
 
                 if(usernameEdit.getText().toString().length()>=3) {
                     Intent intent = new Intent(getApplicationContext(), MessagesActivity.class);
-                    intent.putExtra("UsernameActivity", usernameEdit.getText().toString());
+                    intent.putExtra(Constants.usernameIntentReference, usernameEdit.getText().toString());
                     startActivity(intent);
                 }
                 else
-                    Toast.makeText(UsernameActivity.this, "Username needs to be at least 3 characters long", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UsernameActivity.this, Constants.usernameTooShort, Toast.LENGTH_SHORT).show();
 
             }
         });
