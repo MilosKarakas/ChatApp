@@ -108,6 +108,23 @@ public class MessagesActivity extends AppCompatActivity {
             }
         });
 
+        input_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                chat.scrollToPosition(messages.size() - 1);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         
 
 //TODO : URADITI DA SE PROGRESS PALI SAMO PRI ULASKU U ACITIVITY, NAPRAVITI LJEPSI PROGRESS +
@@ -171,7 +188,7 @@ public class MessagesActivity extends AppCompatActivity {
 
                 for (int iterator = 0; iterator < messages.size();iterator++){
                     check = messages.get(iterator);
-                    if(check.getId()==message.getId()) {
+                    if(check.getId().equals(message.getId())) {
                         messages.remove(messages.indexOf(check));
                         break;
                     }

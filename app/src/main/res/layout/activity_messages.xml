@@ -8,103 +8,97 @@
     android:background="@drawable/background_mess_username"
     tools:context="com.example.pc.chat.MessagesActivity">
 
+    <RelativeLayout
+        android:id="@+id/relative_layout_messages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_above="@id/relative_messages"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical">
 
-
-
-            <RelativeLayout
-                android:id="@+id/relative_layout_messages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/relative_messages"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginBottom="@dimen/messages_message_margin_bottom"
-                android:scrollbars="vertical">
-
-                <android.support.design.widget.AppBarLayout
-                    android:id="@+id/app_bar_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:theme="@style/AppTheme.AppBarOverlay">
-
-                        <android.support.v7.widget.Toolbar
-                            android:id="@+id/toolbar"
-                            android:layout_width="match_parent"
-                            android:layout_height="?attr/actionBarSize"
-                            android:background="@color/toolbar_message_color"
-                            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-                </android.support.design.widget.AppBarLayout>
-
-
-
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/message_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/app_bar_layout"
-                    android:scrollbars="vertical"
-                    android:focusable="true"
-                    >
-                </android.support.v7.widget.RecyclerView>
-
-            </RelativeLayout>
-
-            <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:id="@+id/messages_progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:indeterminate="true"
-            android:indeterminateDrawable="@drawable/progress_bar_shape"
-            />
-
-        <RelativeLayout
-            android:id="@+id/relative_messages"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="@dimen/input_margin_top"
-            android:layout_marginBottom="@dimen/single_message_item_margin"
-            >
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-
-            <EditText
-                android:id="@+id/input_message"
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter a message.."
-                android:textColor="@color/messages_input_et_text_color"
-                android:layout_marginTop="@dimen/input_margin_top"
-                android:layout_marginLeft="@dimen/messages_input_message_margin_left"
-                android:layout_marginRight="@dimen/messages_input_message_margin_right"
-                android:layout_alignParentBottom="true"
-                android:focusable="true"
-                android:inputType="textCapSentences|textMultiLine"
-                android:maxHeight="96dp"
-                android:maxLines="5"
-                android:padding="6dp"
-                android:scrollbars="vertical"
-                android:textSize="@dimen/input_text_size"
-                android:background="@color/username_shapes_background"
-                />
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/toolbar_message_color"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <Button
-                android:id="@+id/input_button"
-                android:layout_height="@dimen/input_btn_height"
-                android:layout_width="@dimen/input_btn_width"
-                android:layout_marginTop="@dimen/input_margin_top"
-                android:layout_marginRight="@dimen/messages_input_message_margin_right_btn"
-                android:background="@drawable/message_send"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:focusable="true"
-                />
+        </android.support.design.widget.AppBarLayout>
 
-        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/message_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/app_bar_layout"
+            android:scrollbars="vertical"
+            android:focusable="true"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:id="@+id/messages_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_bar_shape"
+        />
+
+    <LinearLayout
+        android:id="@+id/relative_messages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/input_margin_top"
+        android:layout_marginBottom="@dimen/single_message_item_margin"
+        >
+
+        <EditText
+            android:id="@+id/input_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5.3"
+            android:hint="Enter a message.."
+            android:textColor="@color/messages_input_et_text_color"
+            android:layout_marginLeft="@dimen/messages_input_message_margin_left"
+            android:layout_marginRight="@dimen/messages_input_message_margin_right"
+            android:layout_alignParentBottom="true"
+            android:focusable="true"
+            android:layout_gravity="center_vertical"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="96dp"
+            android:maxLines="5"
+            android:padding="6dp"
+            android:scrollbars="vertical"
+            android:textSize="@dimen/input_text_size"
+            android:background="@color/username_shapes_background" />
+
+        <Button
+            android:id="@+id/input_button"
+            android:layout_height="@dimen/input_btn_height"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_marginRight="@dimen/messages_input_message_margin_right_btn"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/message_send"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:focusable="true"
+            />
+    </LinearLayout>
 
 </RelativeLayout>
 
