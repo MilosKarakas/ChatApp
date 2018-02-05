@@ -9,12 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -25,9 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MessagesActivity extends AppCompatActivity {
 
@@ -81,7 +76,7 @@ public class MessagesActivity extends AppCompatActivity {
                 messageCheck = message.trim().replaceAll(" ", "");
 
 
-                if (messageCheck.isEmpty())
+                if (messageCheck=="")
                     input_et.setText("");
 
                 else {
