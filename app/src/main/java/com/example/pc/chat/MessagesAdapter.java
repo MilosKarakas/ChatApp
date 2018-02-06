@@ -44,12 +44,12 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
                 View itemView = LayoutInflater.from(parent.getContext())
-                                .inflate(R.layout.single_message_item, parent, false);
+                                .inflate(R.layout.single_message_item, parent, Constants.falseBool);
 
                 View itemView2 = LayoutInflater.from(parent.getContext())
-                                .inflate(R.layout.single_message_item_user, parent, false);
+                                .inflate(R.layout.single_message_item_user, parent, Constants.falseBool);
 
-                if(viewType ==1)
+                if(viewType ==Constants.One)
                     return new MyViewHolder(itemView);
                 else
                     return new MyViewHolder(itemView2);

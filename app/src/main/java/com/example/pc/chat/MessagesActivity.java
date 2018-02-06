@@ -47,20 +47,20 @@ public class MessagesActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        isFirstTime = true;
+        isFirstTime = Constants.trueBool;
         progressBar= findViewById(R.id.messages_progress_bar);
         chat = findViewById(R.id.message_recycler_view);
         input_btn = findViewById(R.id.input_button);
-        username = bundle.getString("UsernameActivity");
+        username = bundle.getString(Constants.usernameActivityString);
         messages_containter = findViewById(R.id.relative_layout_messages);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference data_reference = database.getReference("Messages/");
+        final DatabaseReference data_reference = database.getReference(Constants.messagesReference);
         final EditText input_et = findViewById(R.id.input_message);
 
 
         username = username.toLowerCase(); //ZA SLUCAJ DA SU RAZLICITO VELIKA I MALA SLOVA
-        username = username.substring(0,1).toUpperCase()+username.substring(1);
+        username = username.substring(Constants.Zero,Constants.One).toUpperCase()+username.substring(Constants.One);
 
 
         //SLANJE PORUKE
@@ -72,30 +72,29 @@ public class MessagesActivity extends AppCompatActivity {
                 //DA NE BI MOGLA PRAZNA PORUKA
 
                 message = input_et.getText().toString();
-                messageCheck = message.trim().replaceAll("\n", "");
-                messageCheck = message.trim().replaceAll(" ", "");
+                messageCheck = message.trim().replaceAll(Constants.nextLineString, Constants.emptyString);
+                messageCheck = message.trim().replaceAll(Constants.spaceString, Constants.emptyString);
 
 
-                if (messageCheck=="")
-                    input_et.setText("");
+                if (messageCheck==Constants.emptyString)
+                    input_et.setText(Constants.emptyString);
 
                 else {
 
-                    while(message.endsWith("\n")) {
-                        message = message.substring(0,message.length()-2);
-                        input_et.setText("radi");
-                    }
+                    while(message.endsWith(Constants.nextLineString))
+                        message = message.substring(Constants.Zero,message.length()-Constants.Two);
+
 
                     Calendar c = Calendar.getInstance();
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    SimpleDateFormat df = new SimpleDateFormat(Constants.dateTimeFormat);
                     String time = df.format(c.getTime());
                     String random = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
-                    data_reference.child(random).child("time").setValue(time);
-                    data_reference.child(random).child("text").setValue(message);
-                    data_reference.child(random).child("username").setValue(username);
+                    data_reference.child(random).child(Constants.messageTimeKey).setValue(time);
+                    data_reference.child(random).child(Constants.messageTextKey).setValue(message);
+                    data_reference.child(random).child(Constants.messageUsernameKey).setValue(username);
 
-                    input_et.setText("");
+                    input_et.setText(Constants.emptyString);
 
                 }
 
@@ -111,7 +110,7 @@ public class MessagesActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                chat.scrollToPosition(messages.size() - 1);
+                chat.scrollToPosition(messages.size() - Constants.One);
             }
 
             @Override
@@ -122,9 +121,9 @@ public class MessagesActivity extends AppCompatActivity {
 
         
 
-//TODO : URADITI DA SE PROGRESS PALI SAMO PRI ULASKU U ACITIVITY, NAPRAVITI LJEPSI PROGRESS +
-        //TODO : KAD SE OTVORI TASTATURA DA PORUKE IDU GORE
-        //TODO : KAD SE OTVORI VISE REDOVA EDITTEXTA DA PORUKE IDU GORE
+
+
+        
 
         //UCITAVANJE PODATAKA
         data_reference.addChildEventListener(new ChildEventListener() {
@@ -138,9 +137,9 @@ public class MessagesActivity extends AppCompatActivity {
 
 
 
-                String time = dataSnapshot.child("time").getValue(String.class);
-                String text = dataSnapshot.child("text").getValue(String.class);
-                String usernameMessage = dataSnapshot.child("username").getValue(String.class);
+                String time = dataSnapshot.child(Constants.messageTimeKey).getValue(String.class);
+                String text = dataSnapshot.child(Constants.messageTextKey).getValue(String.class);
+                String usernameMessage = dataSnapshot.child(Constants.messageUsernameKey).getValue(String.class);
 
                 int type;
 
@@ -148,8 +147,8 @@ public class MessagesActivity extends AppCompatActivity {
                     messages.add(new Message(time, dataSnapshot.getKey()));
                 }
                 else {
-                    if(username.equals(usernameMessage)) type = 2;
-                    else type = 1;
+                    if(username.equals(usernameMessage)) type = Constants.Two;
+                    else type = Constants.One;
                     messages.add(new Message(usernameMessage, text, time, dataSnapshot.getKey()));
                     update(type);
                 }
@@ -159,12 +158,12 @@ public class MessagesActivity extends AppCompatActivity {
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                String username = dataSnapshot.child("username").getValue(String.class);
-                String time = dataSnapshot.child("time").getValue(String.class);
-                String text = dataSnapshot.child("text").getValue(String.class);
+                String username = dataSnapshot.child(Constants.messageUsernameKey).getValue(String.class);
+                String time = dataSnapshot.child(Constants.messageTimeKey).getValue(String.class);
+                String text = dataSnapshot.child(Constants.messageTextKey).getValue(String.class);
                 String id = dataSnapshot.getKey();
 
-                for (int i = 0; i < messages.size(); i++) {
+                for (int i = Constants.Zero; i < messages.size(); i++) {
                     if (messages.get(i).getId().equals(id)) {
                         messages.get(i).setText(text);
                         messages.get(i).setTime(time);
@@ -178,10 +177,10 @@ public class MessagesActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                Message message = new Message(dataSnapshot.child("username").getValue().toString(), dataSnapshot.child("text").getValue().toString(), dataSnapshot.child("time").getValue().toString(), dataSnapshot.getKey().toString());
+                Message message = new Message(dataSnapshot.child(Constants.messageUsernameKey).getValue().toString(), dataSnapshot.child(Constants.messageTextKey).getValue().toString(), dataSnapshot.child(Constants.messageTimeKey).getValue().toString(), dataSnapshot.getKey().toString());
                 Message check;
 
-                for (int iterator = 0; iterator < messages.size();iterator++){
+                for (int iterator = Constants.Zero; iterator < messages.size();iterator++){
                     check = messages.get(iterator);
                     if(check.getId().equals(message.getId())) {
                         messages.remove(messages.indexOf(check));
@@ -211,9 +210,9 @@ public class MessagesActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(getApplicationContext());
         chat.setLayoutManager(layoutManager);
         chat.setItemAnimator(new DefaultItemAnimator());
-        adapter.onCreateViewHolder(chat, 1);
+        adapter.onCreateViewHolder(chat, Constants.One);
         chat.setAdapter(adapter);
-        layoutManager.scrollToPosition(messages.size() - 1);
+        layoutManager.scrollToPosition(messages.size() - Constants.One);
 
         input_btn.requestFocus();
         if (isFirstTime) {
@@ -221,7 +220,7 @@ public class MessagesActivity extends AppCompatActivity {
             chat.setVisibility(View.VISIBLE);
         }
 
-        isFirstTime = false;
+        isFirstTime = Constants.falseBool;
     }
 
     public void update()
